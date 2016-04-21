@@ -1,3 +1,5 @@
+# replacing hardcoded integer const values with bitwise operations
+
 import re
 import sys
 
