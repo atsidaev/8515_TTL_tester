@@ -19,7 +19,7 @@ void test_74174(void)
         Port_H=1;
         Port_L=1;
         delay_ms(1);
-        if ((Pin_L==0x53) && (Pin_H==1) && (res==1)) res=1;
+        if ((Pin_L==83) && (Pin_H==1) && (res==1)) res=1;
             else res=0;                   
         Port_H=45;
         Port_H=173;
