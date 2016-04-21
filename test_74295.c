@@ -1,3 +1,19 @@
+#define P_D BIT_L0
+#define P_P0 BIT_L1
+#define P_P1 BIT_L2
+#define P_P2 BIT_L3
+#define P_P3 BIT_L4
+#define P_LDnnSH BIT_L5
+#define P_GND BIT_L6
+#define P_OE BIT_H6
+#define P_nCLK BIT_H5
+#define P_Y3 BIT_H4
+#define P_Y2 BIT_H3
+#define P_Y1 BIT_H2
+#define P_Y0 BIT_H1
+#define P_VCC BIT_H0
+
+
 /* D P0 P1 P2 P3 LD//SH GND OE /CLK Y3 Y2 Y1 Y0 VCC */
 /* 74295 4-bit 3-state negative-edge-triggered universal shift register. */
 void test_74295(void)
@@ -7,38 +23,54 @@ void test_74295(void)
         sym[3]=2;
         res=0;
         sym[0]=12;
-        Direct_L=(BIT_L0 | BIT_L1 | BIT_L2 | BIT_L3 | BIT_L4 | BIT_L5 | BIT_L6 | BIT_L7);
-        Direct_H=(BIT_H7 | BIT_H6 | BIT_H5 | BIT_H0);
-        Port_L=(BIT_L5);
-        Port_H=(BIT_H6 | BIT_H5 | BIT_H0);
-        Port_H=(BIT_H6 | BIT_H0);
-        Port_H=(BIT_H6 | BIT_H5 | BIT_H0);
+        Direct_L=(P_D | P_P0 | P_P1 | P_P2 | P_P3 | P_LDnnSH | P_GND | BIT_L7);
+        Direct_H=(BIT_H7 | P_OE | P_nCLK | P_VCC);
+        Port_L=(P_LDnnSH);
+        Port_H=(P_OE | P_nCLK | P_VCC);
+        Port_H=(P_OE | P_VCC);
+        Port_H=(P_OE | P_nCLK | P_VCC);
         Port_L=0;
         delay_ms(1);
-        if ((Pin_L==0) && (Pin_H==(BIT_H6 | BIT_H5 | BIT_H0))) res=1;
+        if ((Pin_L==0) && (Pin_H==(P_OE | P_nCLK | P_VCC))) res=1;
             else res=0;
-        Port_L=(BIT_L0);
-        Port_H=(BIT_H6 | BIT_H0);
-        Port_H=(BIT_H6 | BIT_H5 | BIT_H0);
-        if ((Pin_L==(BIT_L0)) && (Pin_H==(BIT_H6 | BIT_H5 | BIT_H1 | BIT_H0)) && (res==1)) res=1;
+        Port_L=(P_D);
+        Port_H=(P_OE | P_VCC);
+        Port_H=(P_OE | P_nCLK | P_VCC);
+        if ((Pin_L==(P_D)) && (Pin_H==(P_OE | P_nCLK | P_Y0 | P_VCC)) && (res==1)) res=1;
             else res=0;
-        Port_H=(BIT_H6 | BIT_H0);
-        Port_H=(BIT_H6 | BIT_H5 | BIT_H0);
-        Port_H=(BIT_H6 | BIT_H0);
-        Port_H=(BIT_H6 | BIT_H5 | BIT_H0);
-        Port_H=(BIT_H6 | BIT_H0);
-        Port_H=(BIT_H6 | BIT_H5 | BIT_H0);
-        if ((Pin_L==(BIT_L0)) && (Pin_H==(BIT_H6 | BIT_H5 | BIT_H4 | BIT_H3 | BIT_H2 | BIT_H1 | BIT_H0)) && (res==1)) res=1;
+        Port_H=(P_OE | P_VCC);
+        Port_H=(P_OE | P_nCLK | P_VCC);
+        Port_H=(P_OE | P_VCC);
+        Port_H=(P_OE | P_nCLK | P_VCC);
+        Port_H=(P_OE | P_VCC);
+        Port_H=(P_OE | P_nCLK | P_VCC);
+        if ((Pin_L==(P_D)) && (Pin_H==(P_OE | P_nCLK | P_Y3 | P_Y2 | P_Y1 | P_Y0 | P_VCC)) && (res==1)) res=1;
             else res=0;
-        Port_L=(BIT_L5);
-        Port_H=(BIT_H6 | BIT_H0);
-        Port_H=(BIT_H6 | BIT_H5 | BIT_H0);
+        Port_L=(P_LDnnSH);
+        Port_H=(P_OE | P_VCC);
+        Port_H=(P_OE | P_nCLK | P_VCC);
         Port_L=0;
         delay_ms(1);
-        if ((Pin_L==0) && (Pin_H==(BIT_H6 | BIT_H5 | BIT_H0)) && (res==1)) res=1;
+        if ((Pin_L==0) && (Pin_H==(P_OE | P_nCLK | P_VCC)) && (res==1)) res=1;
             else res=0;                    
         if (res==1) sym[0]=10;
             else sym[0]=11;   
         Port_L=0;
         Port_H=0;            
     }
+
+
+#undef P_D
+#undef P_P0
+#undef P_P1
+#undef P_P2
+#undef P_P3
+#undef P_LDnnSH
+#undef P_GND
+#undef P_OE
+#undef P_nCLK
+#undef P_Y3
+#undef P_Y2
+#undef P_Y1
+#undef P_Y0
+#undef P_VCC
