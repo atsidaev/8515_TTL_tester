@@ -1,3 +1,5 @@
+/* /OE Q1 D1 D2 Q2 Q3 D3 D4 Q4 GND CLK Q5 D5 D6 Q6 Q7 D7 D8 Q8 VCC */
+/* 74374 8-bit 3-state D flip-flop. */ 
 void test_74374(void)
     {
         sym[1]=4;

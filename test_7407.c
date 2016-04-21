@@ -1,3 +1,4 @@
+/* 1A 1Y 2A 2Y 3A 3Y GND 4Y 4A 5Y 5A 6Y 6A VCC */
 void test_7407(void)
     {   
         sym[1]=7;

@@ -1,3 +1,5 @@
+/* 1EN1 n1EN2 S1 n1Y3 n1Y2 n1Y1 n1Y0 GND n2Y0 n2Y1 n2Y2 n2Y3 S0 n2EN2 n2EN1 VCC */
+/* 2-of-8 inverting decoder/demultiplexer with separate enables. */
 void test_74155(void)
     {   
         sym[1]=5;

@@ -1,3 +1,6 @@
+/* A B C D E F GND nY NC NC G H NC VCC */
+/* 8-input NAND gate. */
+
 void test_7430(void)
     {   
         sym[1]=0;

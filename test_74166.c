@@ -1,3 +1,5 @@
+/* D P0 P1 P2 P3 CLK1 CLK2 GND /RST P4 P5 P6 Q7 P7 SH_LD VCC */
+/* 74166 8-bit parallel-in serial-out shift register with asynchronous reset */
 void test_74166(void)
     {   
         sym[1]=6;

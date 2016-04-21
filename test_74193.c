@@ -1,3 +1,6 @@
+/* P1 Q1 Q0 DOWN UP Q2 Q3 GND P3 P2 /LOAD /CARRY /BORROW RST P0 VCC */
+/* 74193 4-bit synchronous binary up/down counter with asynchronous load and reset, and separate up and down clocks. Carry and borrow outputs. */
+
 void test_74193(void)
     {   
         sym[1]=3;

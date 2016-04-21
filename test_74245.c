@@ -1,3 +1,5 @@
+/* DIR A1 A2 A3 A4 A5 A6 A7 A8 GND B8 B7 B6 B5 B4 B3 B2 B1 /EN VCC */
+/* 74245 8-bit 3-state noninverting bus transceiver. */
 void test_74245(void)
     {
         sym[1]=5;

@@ -1,3 +1,5 @@
+/* nCLK1 RST1 RST2 NC VCC NC NC Q2 Q1 GND Q3 Q0 NC nCLK0 */
+/* 4-bit asynchronous binary counter with /2 and /8 sections and reset.  */
 void test_7493(void)
     {   
         sym[1]=3;

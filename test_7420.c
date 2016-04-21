@@ -1,3 +1,4 @@
+/* 1A 1B NC 1C 1D n1Y GND n2Y 2A 2B NC 2C 2D VCC */
 void test_7420(void)
     {   
         sym[1]=0;

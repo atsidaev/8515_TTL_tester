@@ -1,3 +1,5 @@
+/* D P0 P1 P2 P3 LD//SH GND OE /CLK Y3 Y2 Y1 Y0 VCC */
+/* 74295 4-bit 3-state negative-edge-triggered universal shift register. */
 void test_74295(void)
     {
         sym[1]=5;

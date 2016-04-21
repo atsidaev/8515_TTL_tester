@@ -1,3 +1,5 @@
+/* U_D CLK P0 P1 P2 P3 /ENP GND /LOAD /ENT Q3 Q2 Q1 Q0 /RCO VCC */
+/* 74169 4-bit synchronous binary up/down counter with load and ripple carry output. */
 void test_74169(void)
     {   
         sym[1]=9;

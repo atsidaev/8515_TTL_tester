@@ -1,3 +1,4 @@
+/* 1A 1B 2A 2B 2C 2Y GND 3Y 3A 3B 3C 1Y 1C VCC */
 void test_7410(void)
     {   
         sym[1]=0;
@@ -17,7 +18,7 @@ void test_7410(void)
         if ((Pin_L==(BIT_L0 | BIT_L2 | BIT_L5)) && (Pin_H==(BIT_H6 | BIT_H5 | BIT_H2 | BIT_H0)) && (res==1)) res=1;
             else res=0; 
         Port_L=(BIT_L0 | BIT_L1 | BIT_L2 | BIT_L3 | BIT_L5);
-        Port_H=(BIT_H6 | BIT_H5 | BIT_H4 | BIT_H2 | BIT_H0);                                                           
+        Port_H=(BIT_H6 | BIT_H5 | BIT_H4 | BIT_H2 | BIT_H0);
         if ((Pin_L==(BIT_L0 | BIT_L1 | BIT_L2 | BIT_L3 | BIT_L5)) && (Pin_H==(BIT_H6 | BIT_H5 | BIT_H4 | BIT_H2 | BIT_H0)) && (res==1)) res=1;
             else res=0;
         Port_L=(BIT_L0 | BIT_L1 | BIT_L2 | BIT_L3 | BIT_L4 | BIT_L5);

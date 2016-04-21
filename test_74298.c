@@ -1,3 +1,5 @@
+/* 2A1 2A0 1A0 1A1 3A1 4A1 4A0 GND 3A0 S CLK 4Q 3Q 2Q 1Q VCC */
+/* 74298 8-to-4 line noninverting data selector/multiplexer with output registers. */
 void test_74298(void)
     {
         sym[1]=8;

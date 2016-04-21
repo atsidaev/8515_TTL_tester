@@ -1,3 +1,6 @@
+/* /RST Q1 /Q1 D1 D2 /Q2 Q2 GND CLK Q3 /Q3 D3 D4 /Q4 Q4 VCC */
+/* 74175 4-bit D flip-flop with complementary outputs and reset. */
+
 void test_74175(void)
     {
         sym[1]=5;

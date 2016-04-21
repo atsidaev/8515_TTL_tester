@@ -1,3 +1,5 @@
+/* S0 S1 S2 nEN3 nEN2 EN1 nY7 GND nY6 nY5 nY4 nY3 nY2 nY1 nY0 VCC */
+/* 1-of-8 inverting decoder/demultiplexer.  */
 void test_74138(void)
     {   
         sym[1]=8;

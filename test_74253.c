@@ -1,3 +1,6 @@
+/* /1EN S1 1A3 1A2 1A1 1A0 1Y GND 2Y 2A0 2A1 2A2 2A3 S0 /2EN VCC */
+/* 74253 8-to-2 line 3-state noninverting data selector/multiplexer. */
+
 void test_74253(void)
     {   
         sym[1]=3;

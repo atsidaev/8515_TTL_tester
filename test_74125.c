@@ -1,3 +1,5 @@
+/* n1OE 1A 1Y n2OE 2A 2Y GND 3Y 3A n3OE 4Y 4A n4OE VCC */
+/* Quad 3-state noninverting buffer with active low enables.  */
 void test_74125(void)
     {   
         sym[1]=5;
