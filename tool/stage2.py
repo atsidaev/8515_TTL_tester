@@ -12,12 +12,13 @@ defines = []
 
 if content[0].startswith("/*"):
 	pins = content[0].replace("/*", "").replace("*/", "").strip().split(" ")
-	if len(pins) != 14 and len(pins) != 16:
+	if len(pins) != 14 and len(pins) != 16 and len(pins) != 18 and len(pins) != 20:
 		raise Exception("Invalid description for chip pins")
 	
 	# rename ambigous pins
 	nc = 1
 	for i in range(0, len(pins)):
+		pins[i] = pins[i].replace("/", "n")
 		if pins[i] == "NC":
 			pins[i] = "NC" + str(nc)
 			nc += 1
