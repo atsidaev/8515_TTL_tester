@@ -1,0 +1,41 @@
+void test_74245(void)
+    {
+        sym[1]=5;
+        sym[2]=4;
+        sym[3]=2;
+        res=0;
+        sym[0]=12;
+        Direct_L=255;
+        Direct_H=3;
+        DDRE=1;
+        Port_L=171;
+        Port_H=1;
+        PORTE=0;
+        if ((Pin_L==171) && (Pin_H==85) && (PINE==4)) res=1;
+            else res=0;
+        Port_L=85;
+        Port_H=1;
+        PORTE=1;
+        if ((Pin_L==85) && (Pin_H==169) && (PINE==3) && (res==1)) res=1;
+            else res=0;            
+        Direct_L=1;
+        Direct_H=255;
+        DDRE=6;
+        Port_L=0;
+        Port_H=85;
+        PORTE=4;
+        delay_ms(1);
+        if ((Pin_L==170) && (Pin_H==85) && (PINE==4)) res=1;
+            else res=0;
+        Port_L=0;
+        Port_H=169;
+        PORTE=2;
+        delay_ms(1);
+        if ((Pin_L==84) && (Pin_H==169) && (PINE==3) && (res==1)) res=1;
+            else res=0;    
+        if (res==1) sym[0]=10;
+            else sym[0]=11;   
+        Port_L=0;
+        Port_H=0;
+        PORTE=0;            
+    }
