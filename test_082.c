@@ -10,7 +10,7 @@ void test_082(void)
         DDRE=3;
         PORTE=2;
         Port_L=85;
-        Port_H=1;
+        Port_H=255;
         delay_ms(1);       
         if ((Pin_L==85) && (Pin_H==171) && (PINE==2)) res=1;
             else res=0;            

@@ -20,10 +20,10 @@ void test_7486(void)
         Port_H=109;
         if ((Pin_L==54) && (Pin_H==109) && (res==1)) res=1;
             else res=0;
-        /*Port_L=63;
+        Port_L=63;
         Port_H=127;
         if ((Pin_L==27) && (Pin_H==55) && (res==1)) res=1;
-            else res=0; */       
+            else res=0;        
         if (res==1) sym[0]=10;
             else sym[0]=11;
         Port_L=0;

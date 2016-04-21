@@ -59,6 +59,7 @@ void search(void);
 #include <test_74155.c>
 #include <test_74161.c>
 #include <test_74166.c>
+#include <test_74169.c>
 #include <test_74174.c>
 #include <test_74175.c>
 #include <test_74193.c>
@@ -103,6 +104,7 @@ const struct
     { test_74155,   { 5, 5, 1, 13 } },
     { test_74161,   { 1, 6, 1, 13 } },
     { test_74166,   { 6, 6, 1, 13 } }, 
+    { test_74169,   { 9, 6, 1, 13 } },
     { test_74174,   { 4, 7, 1, 13 } },
     { test_74175,   { 5, 7, 1, 13 } },
     { test_74193,   { 3, 9, 1, 13 } },

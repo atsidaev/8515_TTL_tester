@@ -50,7 +50,7 @@ void test_74193(void)
         Port_H=131;
         Port_H=163;
         if ((Pin_L==76) && (res==1)) res=1;
-            else res=0;  */                 
+            else res=0;                  
         if (res==1) sym[0]=10;
             else sym[0]=11;  
         Port_L=0;

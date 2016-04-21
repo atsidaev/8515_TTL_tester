@@ -18,7 +18,6 @@ void test_086(void)
         delay_ms(1);
         if ((Pin_L==170) && (Pin_H==85) && (PINE==6) && (res==1)) res=1;
             else res=0;
-        delay_ms(2);
         Direct_L=0;
         Direct_H=255;
         DDRE=7;

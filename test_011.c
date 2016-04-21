@@ -23,12 +23,7 @@ void test_011(void)
         if ((Pin_L==126) && (Pin_H==253) && (res==1)) res=1;
             else res=0;      
         if (res==1) sym[0]=10;
-            else {sym[0]=(Pin_L & 0x0F);
-                sym[1]=(Pin_L & 0xF0)>>4;
-                sym[2]=(Pin_H & 0x0F);
-                sym[3]=(Pin_H & 0xF0)>>4;}
-            
-            //else sym[0]=11;
+            else sym[0]=11;
         Port_L=0;
         Port_H=0;            
     }

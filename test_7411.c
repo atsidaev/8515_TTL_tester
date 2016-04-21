@@ -20,16 +20,12 @@ void test_7411(void)
         Port_H=93;
         if ((Pin_L==15) && (Pin_H==25) && (res==1)) res=1;
             else res=0;
-        /*Port_L=27;
-        Port_H=55;
-        if ((Pin_L==27) && (Pin_H==55) && (res==1)) res=1;
-            else res=0; */       
+        Port_L=63;
+        Port_H=127;
+        if ((Pin_L==63) && (Pin_H==127) && (res==1)) res=1;
+            else res=0;       
         if (res==1) sym[0]=10;
-            else {sym[0]=(Pin_L & 0x0F);
-                sym[1]=(Pin_L & 0xF0)>>4;
-                sym[2]=(Pin_H & 0x0F);
-                sym[3]=(Pin_H & 0xF0)>>4;};
-            //else sym[0]=11;
+            else sym[0]=11;
         Port_L=0;
         Port_H=0;                                        
     }
