@@ -37,6 +37,25 @@ void search(void);
 #define key_SEARCH PINB.0
 #define key_TEST PINB.1
 
+/* Pins declaration for IC connector port */
+#define BIT_L0 1
+#define BIT_L1 2
+#define BIT_L2 4
+#define BIT_L3 8
+#define BIT_L4 16
+#define BIT_L5 32
+#define BIT_L6 64
+#define BIT_L7 128
+
+#define BIT_H0 1
+#define BIT_H1 2
+#define BIT_H2 4
+#define BIT_H3 8
+#define BIT_H4 16
+#define BIT_H5 32
+#define BIT_H6 64
+#define BIT_H7 128
+
 #include <test_7400.c>     
 #include <test_7402.c>
 #include <test_7404.c>
