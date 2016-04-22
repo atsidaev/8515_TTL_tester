@@ -27,7 +27,7 @@ void test_74374(void)
         sym[1]=4;
         sym[2]=7;
         sym[3]=3;
-        res=0;
+        res=1;
         sym[0]=12;
         Direct_L=(P_nOE | P_D1 | P_D2 | P_D3 | P_D4);
         Direct_H=(P_D5 | P_D6 | P_D7 | P_D8 | P_VCC);
@@ -38,18 +38,16 @@ void test_74374(void)
         PORTE=0;
         Port_L=0;
         Port_H=(P_VCC);
-        if ((Pin_L==(P_Q1 | P_Q3)) && (Pin_H==(P_Q6 | P_Q8 | P_VCC))) res=1;
-            else res=0;
+        res &= ((Pin_L==(P_Q1 | P_Q3)) && (Pin_H==(P_Q6 | P_Q8 | P_VCC)));
+
         Port_L=(P_D2 | P_D4);
         Port_H=(P_D5 | P_D7 | P_VCC);
         PORTE=2;
         PORTE=0;
         Port_L=0;
         Port_H=(P_VCC);
-        if ((Pin_L==(P_Q2)) && (Pin_H==(P_Q7 | P_VCC)) && (PINE==5) && (res==1)) res=1;
-            else res=0;    
-        if (res==1) sym[0]=10;
-            else sym[0]=11;
+        res &= ((Pin_L==(P_Q2)) && (Pin_H==(P_Q7 | P_VCC)) && (PINE==5));
+
         Port_L=0;
         Port_H=0;
         PORTE=0;            

@@ -23,46 +23,44 @@ void test_74138(void)
         sym[1]=8;
         sym[2]=3;
         sym[3]=1;
-        res=0;
+        res=1;
         sym[0]=12;
         Direct_L=(P_S0 | P_S1 | P_S2 | P_nEN3 | P_nEN2 | P_EN1 | P_GND);
         Direct_H=(P_VCC);
         Port_L=(P_EN1);
         Port_H=(P_VCC);
         delay_ms(1);
-        if ((Pin_L==(P_EN1 | P_nY7)) && (Pin_H==(P_nY6 | P_nY5 | P_nY4 | P_nY3 | P_nY2 | P_nY1 | P_VCC))) res=1;
-            else res=0;
+        res &= ((Pin_L==(P_EN1 | P_nY7)) && (Pin_H==(P_nY6 | P_nY5 | P_nY4 | P_nY3 | P_nY2 | P_nY1 | P_VCC)));
+
         Port_L=(P_S0 | P_EN1);
         Port_H=(P_VCC);
         delay_ms(1);
-        if ((Pin_L==(P_S0 | P_EN1 | P_nY7)) && (Pin_H==(P_nY6 | P_nY5 | P_nY4 | P_nY3 | P_nY2 | P_nY0 | P_VCC)) && (res==1)) res=1;
-            else res=0;
+        res &= ((Pin_L==(P_S0 | P_EN1 | P_nY7)) && (Pin_H==(P_nY6 | P_nY5 | P_nY4 | P_nY3 | P_nY2 | P_nY0 | P_VCC)));
+
         Port_L=(P_S1 | P_EN1);
         delay_ms(1);
-        if ((Pin_L==(P_S1 | P_EN1 | P_nY7)) && (Pin_H==(P_nY6 | P_nY5 | P_nY4 | P_nY3 | P_nY1 | P_nY0 | P_VCC)) && (res==1)) res=1;
-            else res=0;
+        res &= ((Pin_L==(P_S1 | P_EN1 | P_nY7)) && (Pin_H==(P_nY6 | P_nY5 | P_nY4 | P_nY3 | P_nY1 | P_nY0 | P_VCC)));
+
         Port_L=(P_S0 | P_S1 | P_EN1);
         delay_ms(1);
-        if ((Pin_L==(P_S0 | P_S1 | P_EN1 | P_nY7)) && (Pin_H==(P_nY6 | P_nY5 | P_nY4 | P_nY2 | P_nY1 | P_nY0 | P_VCC)) && (res==1)) res=1;
-            else res=0;
+        res &= ((Pin_L==(P_S0 | P_S1 | P_EN1 | P_nY7)) && (Pin_H==(P_nY6 | P_nY5 | P_nY4 | P_nY2 | P_nY1 | P_nY0 | P_VCC)));
+
         Port_L=(P_S2 | P_EN1);
         delay_ms(1);
-        if ((Pin_L==(P_S2 | P_EN1 | P_nY7)) && (Pin_H==(P_nY6 | P_nY5 | P_nY3 | P_nY2 | P_nY1 | P_nY0 | P_VCC)) && (res==1)) res=1;
-            else res=0;
+        res &= ((Pin_L==(P_S2 | P_EN1 | P_nY7)) && (Pin_H==(P_nY6 | P_nY5 | P_nY3 | P_nY2 | P_nY1 | P_nY0 | P_VCC)));
+
         Port_L=(P_S0 | P_S2 | P_EN1);
         delay_ms(1);
-        if ((Pin_L==(P_S0 | P_S2 | P_EN1 | P_nY7)) && (Pin_H==(P_nY6 | P_nY4 | P_nY3 | P_nY2 | P_nY1 | P_nY0 | P_VCC)) && (res==1)) res=1;
-            else res=0;
+        res &= ((Pin_L==(P_S0 | P_S2 | P_EN1 | P_nY7)) && (Pin_H==(P_nY6 | P_nY4 | P_nY3 | P_nY2 | P_nY1 | P_nY0 | P_VCC)));
+
         Port_L=(P_S1 | P_S2 | P_EN1);
         delay_ms(1);
-        if ((Pin_L==(P_S1 | P_S2 | P_EN1 | P_nY7)) && (Pin_H==(P_nY5 | P_nY4 | P_nY3 | P_nY2 | P_nY1 | P_nY0 | P_VCC)) && (res==1)) res=1;
-            else res=0; 
+        res &= ((Pin_L==(P_S1 | P_S2 | P_EN1 | P_nY7)) && (Pin_H==(P_nY5 | P_nY4 | P_nY3 | P_nY2 | P_nY1 | P_nY0 | P_VCC)));
+
         Port_L=(P_S0 | P_S1 | P_S2 | P_EN1);
         delay_ms(1);
-        if ((Pin_L==(P_S0 | P_S1 | P_S2 | P_EN1)) && (Pin_H==(P_nY6 | P_nY5 | P_nY4 | P_nY3 | P_nY2 | P_nY1 | P_nY0 | P_VCC)) && (res==1)) res=1;
-            else res=0;                               
-        if (res==1) sym[0]=10;
-            else sym[0]=11;
+        res &= ((Pin_L==(P_S0 | P_S1 | P_S2 | P_EN1)) && (Pin_H==(P_nY6 | P_nY5 | P_nY4 | P_nY3 | P_nY2 | P_nY1 | P_nY0 | P_VCC)));
+
         Port_L=0;
         Port_H=0;                                        
     }

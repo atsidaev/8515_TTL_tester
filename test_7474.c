@@ -20,7 +20,7 @@ void test_7474(void)
         sym[1]=4;
         sym[2]=7;
         sym[3]=13;
-        res=0;
+        res=1;
         sym[0]=12;
         Direct_L=(P_n1RST | P_1D | P_1CLK | P_n1SET | P_GND | BIT_L7);
         Direct_H=(BIT_H7 | P_n2SET | P_2CLK | P_2D | P_n2RST | P_VCC);
@@ -29,24 +29,22 @@ void test_7474(void)
         Port_L=(P_n1RST | P_n1SET);
         Port_H=(P_n2SET | P_n2RST | P_VCC);
         delay_ms(1);
-        if ((Pin_L==(P_n1RST | P_n1SET | P_n1Q)) && (Pin_H==(P_n2Q | P_n2SET | P_n2RST | P_VCC))) res=1;
-            else res=0;
+        res &= ((Pin_L==(P_n1RST | P_n1SET | P_n1Q)) && (Pin_H==(P_n2Q | P_n2SET | P_n2RST | P_VCC)));
+
         Port_L=(P_n1RST | P_1D | P_n1SET);
         Port_H=(P_n2SET | P_2D | P_n2RST | P_VCC);
         Port_L=(P_n1RST | P_1D | P_1CLK | P_n1SET);
         Port_H=(P_n2SET | P_2CLK | P_2D | P_n2RST | P_VCC);
         Port_L=(P_n1RST | P_n1SET);
         Port_H=(P_n2SET | P_n2RST | P_VCC);
-        if ((Pin_L==(P_n1RST | P_n1SET | P_1Q)) && (Pin_H==(P_2Q | P_n2SET | P_n2RST | P_VCC)) && (res==1)) res=1;
-            else res=0;
+        res &= ((Pin_L==(P_n1RST | P_n1SET | P_1Q)) && (Pin_H==(P_2Q | P_n2SET | P_n2RST | P_VCC)));
+
         Port_L=(P_n1RST | P_1CLK | P_n1SET);
         Port_H=(P_n2SET | P_2CLK | P_n2RST | P_VCC);
         Port_L=(P_n1RST | P_n1SET);
         Port_H=(P_n2SET | P_n2RST | P_VCC);
-        if ((Pin_L==(P_n1RST | P_n1SET | P_n1Q)) && (Pin_H==(P_n2Q | P_n2SET | P_n2RST | P_VCC)) && (res==1)) res=1;
-            else res=0;    
-        if (res==1) sym[0]=10;
-            else sym[0]=11;
+        res &= ((Pin_L==(P_n1RST | P_n1SET | P_n1Q)) && (Pin_H==(P_n2Q | P_n2SET | P_n2RST | P_VCC)));
+
         Port_L=0;
         Port_H=0;                                        
     }

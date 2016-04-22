@@ -20,29 +20,27 @@ void test_7402(void)
         sym[1]=2;
         sym[2]=0;
         sym[3]=13;
-        res=0;
+        res=1;
         sym[0]=12;
         Direct_L=(P_1B | P_1Y | P_2B | P_2Y | P_GND | BIT_L7);
         Direct_H=(BIT_H7 | P_3Y | P_3A | P_4Y | P_4A | P_VCC);
         Port_L=0;
         Port_H=(P_VCC);
         delay_ms(1);
-        if ((Pin_L==(P_1A | P_2A)) && (Pin_H==(P_3B | P_4B | P_VCC))) res=1;
-            else res=0;
+        res &= ((Pin_L==(P_1A | P_2A)) && (Pin_H==(P_3B | P_4B | P_VCC)));
+
         Port_L=(P_1Y | P_2Y);
         Port_H=(P_3Y | P_4Y | P_VCC);
-        if ((Pin_L==(P_1Y | P_2Y)) && (Pin_H==(P_3Y | P_4Y | P_VCC)) && (res==1)) res=1;
-            else res=0; 
+        res &= ((Pin_L==(P_1Y | P_2Y)) && (Pin_H==(P_3Y | P_4Y | P_VCC)));
+
         Port_L=(P_1B | P_2B);
         Port_H=(P_3A | P_4A | P_VCC);
-        if ((Pin_L==(P_1B | P_2B)) && (Pin_H==(P_3A | P_4A | P_VCC)) && (res==1)) res=1;
-            else res=0;
+        res &= ((Pin_L==(P_1B | P_2B)) && (Pin_H==(P_3A | P_4A | P_VCC)));
+
         Port_L=(P_1B | P_1Y | P_2B | P_2Y);
         Port_H=(P_3Y | P_3A | P_4Y | P_4A | P_VCC);
-        if ((Pin_L==(P_1B | P_1Y | P_2B | P_2Y)) && (Pin_H==(P_3Y | P_3A | P_4Y | P_4A | P_VCC)) && (res==1)) res=1;
-            else res=0;        
-        if (res==1) sym[0]=10;
-            else sym[0]=11;
+        res &= ((Pin_L==(P_1B | P_1Y | P_2B | P_2Y)) && (Pin_H==(P_3Y | P_3A | P_4Y | P_4A | P_VCC)));
+
         Port_L=0;
         Port_H=0;                                        
     }

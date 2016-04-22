@@ -22,29 +22,27 @@ void test_7430(void)
         sym[1]=0;
         sym[2]=3;
         sym[3]=13;
-        res=0;
+        res=1;
         sym[0]=12;
         Direct_L=(P_A | P_B | P_C | P_D | P_E | P_F | P_GND | BIT_L7);
         Direct_H=(BIT_H7 | P_NC1 | P_NC2 | P_G | P_H | P_NC3 | P_VCC);
         Port_L=0;
         Port_H=(P_nY | P_NC1 | P_NC2 | P_NC3 | P_VCC);
         delay_ms(1);
-        if ((Pin_L==0) && (Pin_H==(P_nY | P_NC1 | P_NC2 | P_NC3 | P_VCC))) res=1;
-            else res=0;
+        res &= ((Pin_L==0) && (Pin_H==(P_nY | P_NC1 | P_NC2 | P_NC3 | P_VCC)));
+
         Port_L=(P_A | P_C | P_E);
         Port_H=(P_nY | P_NC1 | P_NC2 | P_H | P_NC3 | P_VCC);
-        if ((Pin_L==(P_A | P_C | P_E)) && (Pin_H==(P_nY | P_NC1 | P_NC2 | P_H | P_NC3 | P_VCC)) && (res==1)) res=1;
-            else res=0; 
+        res &= ((Pin_L==(P_A | P_C | P_E)) && (Pin_H==(P_nY | P_NC1 | P_NC2 | P_H | P_NC3 | P_VCC)));
+
         Port_L=(P_B | P_D | P_F);
         Port_H=(P_nY | P_NC1 | P_NC2 | P_G | P_NC3 | P_VCC);
-        if ((Pin_L==(P_B | P_D | P_F)) && (Pin_H==(P_nY | P_NC1 | P_NC2 | P_G | P_NC3 | P_VCC)) && (res==1)) res=1;
-            else res=0;
+        res &= ((Pin_L==(P_B | P_D | P_F)) && (Pin_H==(P_nY | P_NC1 | P_NC2 | P_G | P_NC3 | P_VCC)));
+
         Port_L=(P_A | P_B | P_C | P_D | P_E | P_F);
         Port_H=(P_nY | P_NC1 | P_NC2 | P_G | P_H | P_NC3 | P_VCC);
-        if ((Pin_L==(P_A | P_B | P_C | P_D | P_E | P_F)) && (Pin_H==(P_NC1 | P_NC2 | P_G | P_H | P_NC3 | P_VCC)) && (res==1)) res=1;
-            else res=0;       
-        if (res==1) sym[0]=10;
-            else sym[0]=11;
+        res &= ((Pin_L==(P_A | P_B | P_C | P_D | P_E | P_F)) && (Pin_H==(P_NC1 | P_NC2 | P_G | P_H | P_NC3 | P_VCC)));
+
         Port_L=0;
         Port_H=0;                                        
     }

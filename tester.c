@@ -151,6 +151,14 @@ interrupt [TIM0_OVF] void timer0_ovf_isr(void)
         Display_P=znak[sym[seg]];    
     }
 
+
+void test(char ic_num)
+{
+    chips[ic_num].test();
+    if (res==1) sym[0]=10;
+        else sym[0]=11;
+}
+
 void main(void)
 {
  
@@ -211,7 +219,7 @@ while (1)
         if (key_TEST==0) 
             {
                 if ( sel < _ICs )   // for safety
-                    chips[sel].test();
+                    test(sel);
                 delay_ms(200);    
             }
     }
@@ -233,7 +241,7 @@ void search(void)
         int i;
         for ( i = 0; i < _ICs; i ++ )
         {
-            chips[i].test();
+            test(sel);
             if ( res == 1 )
             {
                 sel = i;

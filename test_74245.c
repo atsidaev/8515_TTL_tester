@@ -27,7 +27,7 @@ void test_74245(void)
         sym[1]=5;
         sym[2]=4;
         sym[3]=2;
-        res=0;
+        res=1;
         sym[0]=12;
         Direct_L=(P_DIR | P_A1 | P_A2 | P_A3 | P_A4 | P_A5 | P_A6 | P_A7);
         Direct_H=(P_nEN | P_VCC);
@@ -35,13 +35,13 @@ void test_74245(void)
         Port_L=(P_DIR | P_A1 | P_A3 | P_A5 | P_A7);
         Port_H=(P_VCC);
         PORTE=0;
-        if ((Pin_L==(P_DIR | P_A1 | P_A3 | P_A5 | P_A7)) && (Pin_H==(P_B5 | P_B3 | P_B1 | P_VCC)) && (PINE==4)) res=1;
-            else res=0;
+        res &= ((Pin_L==(P_DIR | P_A1 | P_A3 | P_A5 | P_A7)) && (Pin_H==(P_B5 | P_B3 | P_B1 | P_VCC)) && (PINE==4));
+
         Port_L=(P_DIR | P_A2 | P_A4 | P_A6);
         Port_H=(P_VCC);
         PORTE=1;
-        if ((Pin_L==(P_DIR | P_A2 | P_A4 | P_A6)) && (Pin_H==(P_B6 | P_B4 | P_B2 | P_VCC)) && (PINE==3) && (res==1)) res=1;
-            else res=0;            
+        res &= ((Pin_L==(P_DIR | P_A2 | P_A4 | P_A6)) && (Pin_H==(P_B6 | P_B4 | P_B2 | P_VCC)) && (PINE==3));
+
         Direct_L=(P_DIR);
         Direct_H=(P_B6 | P_B5 | P_B4 | P_B3 | P_B2 | P_B1 | P_nEN | P_VCC);
         DDRE=6;
@@ -49,16 +49,14 @@ void test_74245(void)
         Port_H=(P_B5 | P_B3 | P_B1 | P_VCC);
         PORTE=4;
         delay_ms(1);
-        if ((Pin_L==(P_A1 | P_A3 | P_A5 | P_A7)) && (Pin_H==(P_B5 | P_B3 | P_B1 | P_VCC)) && (PINE==4)) res=1;
-            else res=0;
+        res &= ((Pin_L==(P_A1 | P_A3 | P_A5 | P_A7)) && (Pin_H==(P_B5 | P_B3 | P_B1 | P_VCC)) && (PINE==4));
+
         Port_L=0;
         Port_H=(P_B6 | P_B4 | P_B2 | P_VCC);
         PORTE=2;
         delay_ms(1);
-        if ((Pin_L==(P_A2 | P_A4 | P_A6)) && (Pin_H==(P_B6 | P_B4 | P_B2 | P_VCC)) && (PINE==3) && (res==1)) res=1;
-            else res=0;    
-        if (res==1) sym[0]=10;
-            else sym[0]=11;   
+        res &= ((Pin_L==(P_A2 | P_A4 | P_A6)) && (Pin_H==(P_B6 | P_B4 | P_B2 | P_VCC)) && (PINE==3));
+
         Port_L=0;
         Port_H=0;
         PORTE=0;            
