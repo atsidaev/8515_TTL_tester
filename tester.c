@@ -1,29 +1,32 @@
+#ifdef __GNUC__
+#include <avr/io.h>
+#include <avr/interrupt.h>
+#include <avr/pgmspace.h>
+
+#define F_CPU 8000000UL
+#include <util/delay.h>
+#define delay_ms _delay_ms
+
+#else
 #include <mega8515.h>
 #include <delay.h>
+#endif
+
+#ifdef __GNUC__
+#define flash const
+#else
+#define PROGMEM
+#endif
 
 char sym[4], seg, res=0;
 //flash char znak[]={63,6,91,79,102,109,125,7,127,111, 99,92,9,0,121,113,120,57};
-flash char znak[]={215,17,203,91,29,94,222,19,223,95, 15,216,66,0,206,142,204,198};
-flash char razr[]={128,64,32,16};
+flash char znak[] PROGMEM ={215,17,203,91,29,94,222,19,223,95, 15,216,66,0,206,142,204,198};
+flash char razr[] PROGMEM ={128,64,32,16};
 char sel=0;
 
 void menu(void);
 void search(void);
 
-
-/*#define Port_H PORTD
-#define Direct_H DDRD
-#define Pin_H PIND
-#define Port_L PORTC
-#define Direct_L DDRC
-#define Pin_L PINC
-#define Display_P PORTA
-#define Display_D DDRA
-#define key_UP PINB.0
-#define key_DN PINB.1
-#define key_SEARCH PINB.2
-#define key_TEST PINB.3 
-*/
 #define Port_H PORTA
 #define Direct_H DDRA
 #define Pin_H PINA
@@ -32,10 +35,18 @@ void search(void);
 #define Pin_L PINC
 #define Display_P PORTD
 #define Display_D DDRD
+
+#ifdef __GNUC__
+#define key_UP (PINB | (1 << 2))
+#define key_DN (PINB | (1 << 3))
+#define key_SEARCH (PINB | (1 << 0))
+#define key_TEST (PINB | (1 << 1))
+#else
 #define key_UP PINB.2
 #define key_DN PINB.3
 #define key_SEARCH PINB.0
 #define key_TEST PINB.1
+#endif
 
 /* Pins declaration for IC connector port */
 #define BIT_L0 1
@@ -143,13 +154,17 @@ const struct
 
 #define _ICs (sizeof(chips)/sizeof(chips[0]))
 
+#ifdef __GNUC__
+ISR(TIMER0_OVF_vect)
+#else
 interrupt [TIM0_OVF] void timer0_ovf_isr(void)
-    {
-        seg++;
-        if (seg==0x04) seg=0x00;
-        PORTB=~razr[seg];
-        Display_P=znak[sym[seg]];    
-    }
+#endif
+{
+	seg++;
+	if (seg==0x04) seg=0x00;
+	PORTB=~razr[seg];
+	Display_P=znak[sym[seg]];    
+}
 
 
 void test(char ic_num)
@@ -189,7 +204,11 @@ sym[2]=14;
 sym[1]=5;
 sym[0]=16;
 
+#ifdef __GNUC__
+sei();
+#else
 #asm("sei")
+#endif
 
 while (1)
     {
