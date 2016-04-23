@@ -172,9 +172,9 @@ void test(char ic_num)
     res=1; /* flag that will be reset by testing function */
     sym[0]=12; /* two horizontal lines as a testing process indicator */
     
-    sym[1] = chips[sel].sym[0];
-    sym[2] = chips[sel].sym[1];
-    sym[3] = chips[sel].sym[2];
+    sym[1] = chips[ic_num].sym[0];
+    sym[2] = chips[ic_num].sym[1];
+    sym[3] = chips[ic_num].sym[2];
     
     chips[ic_num].test();
     if (res==1) sym[0]=10;
@@ -220,7 +220,7 @@ sei();
 while (1)
     {
         if (key_UP==0) {
-            if (sel< _ICs)
+            if (sel < _ICs)
             {
                 sel++;
             } else {
@@ -267,7 +267,7 @@ void search(void)
         int i;
         for ( i = 0; i < _ICs; i ++ )
         {
-            test(sel);
+            test(i);
             if ( res == 1 )
             {
                 sel = i;
