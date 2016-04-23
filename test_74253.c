@@ -24,8 +24,6 @@ void test_74253(void)
         sym[1]=3;
         sym[2]=5;
         sym[3]=2;
-        res=1;
-        sym[0]=12;
         Direct_L=(P_n1EN | P_S1 | P_1A3 | P_1A2 | P_1A1 | P_1A0 | P_GND);
         Direct_H=(P_2A0 | P_2A1 | P_2A2 | P_2A3 | P_S0 | P_n2EN | P_VCC);
         Port_L=(P_1A2 | P_1A0);

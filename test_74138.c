@@ -23,8 +23,6 @@ void test_74138(void)
         sym[1]=8;
         sym[2]=3;
         sym[3]=1;
-        res=1;
-        sym[0]=12;
         Direct_L=(P_S0 | P_S1 | P_S2 | P_nEN3 | P_nEN2 | P_EN1 | P_GND);
         Direct_H=(P_VCC);
         Port_L=(P_EN1);

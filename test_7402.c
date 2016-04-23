@@ -20,8 +20,6 @@ void test_7402(void)
         sym[1]=2;
         sym[2]=0;
         sym[3]=13;
-        res=1;
-        sym[0]=12;
         Direct_L=(P_1B | P_1Y | P_2B | P_2Y | P_GND | BIT_L7);
         Direct_H=(BIT_H7 | P_3Y | P_3A | P_4Y | P_4A | P_VCC);
         Port_L=0;

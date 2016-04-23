@@ -4,8 +4,6 @@ void test_C4520(void)
         sym[1]=0;
         sym[2]=2;
         sym[3]=17;
-        res=1;
-        sym[0]=12;
         Direct_L=(BIT_L0 | BIT_L1 | BIT_L6 | BIT_L7);
         Direct_H=(BIT_H7 | BIT_H6 | BIT_H1 | BIT_H0);
         Port_L=(BIT_L6);

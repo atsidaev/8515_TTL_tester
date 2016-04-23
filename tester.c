@@ -169,6 +169,9 @@ interrupt [TIM0_OVF] void timer0_ovf_isr(void)
 
 void test(char ic_num)
 {
+    res=1; /* flag that will be reset by testing function */
+    sym[0]=12; /* two horizontal lines as a testing process indicator */
+
     chips[ic_num].test();
     if (res==1) sym[0]=10;
         else sym[0]=11;
