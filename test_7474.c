@@ -17,9 +17,6 @@
 /* n1RST 1D 1CLK n1SET 1Q n1Q GND n2Q 2Q n2SET 2CLK 2D n2RST VCC */
 void test_7474(void)
     {   
-        sym[1]=4;
-        sym[2]=7;
-        sym[3]=13;
         Direct_L=(P_n1RST | P_1D | P_1CLK | P_n1SET | P_GND | BIT_L7);
         Direct_H=(BIT_H7 | P_n2SET | P_2CLK | P_2D | P_n2RST | P_VCC);
         Port_L=(P_n1SET);

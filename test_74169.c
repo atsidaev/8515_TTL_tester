@@ -20,9 +20,6 @@
 /* 74169 4-bit synchronous binary up/down counter with load and ripple carry output. */
 void test_74169(void)
     {   
-        sym[1]=9;
-        sym[2]=6;
-        sym[3]=1;
         Direct_L=(P_U_D | P_CLK | P_P0 | P_P1 | P_P2 | P_P3 | P_nENP | P_GND);
         Direct_H=(P_nLOAD | P_nENT | P_VCC);
         Port_L=(P_P0 | P_P2);

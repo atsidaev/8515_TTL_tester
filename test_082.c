@@ -1,8 +1,5 @@
 void test_082(void)
     {
-        sym[1]=2;
-        sym[2]=8;
-        sym[3]=12;
         Direct_L=(BIT_L0 | BIT_L1 | BIT_L2 | BIT_L3 | BIT_L4 | BIT_L5 | BIT_L6 | BIT_L7);
         Direct_H=(BIT_H0);
         DDRE=3;

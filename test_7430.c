@@ -19,9 +19,6 @@
 
 void test_7430(void)
     {   
-        sym[1]=0;
-        sym[2]=3;
-        sym[3]=13;
         Direct_L=(P_A | P_B | P_C | P_D | P_E | P_F | P_GND | BIT_L7);
         Direct_H=(BIT_H7 | P_NC1 | P_NC2 | P_G | P_H | P_NC3 | P_VCC);
         Port_L=0;

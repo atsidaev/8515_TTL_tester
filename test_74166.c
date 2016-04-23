@@ -20,9 +20,6 @@
 /* 74166 8-bit parallel-in serial-out shift register with asynchronous reset */
 void test_74166(void)
     {   
-        sym[1]=6;
-        sym[2]=6;
-        sym[3]=1;
         Direct_L=(P_D | P_P0 | P_P1 | P_P2 | P_P3 | P_CLK1 | P_CLK2 | P_GND);
         Direct_H=(P_nRST | P_P4 | P_P5 | P_P6 | P_P7 | P_SH_LD | P_VCC);
         Port_L=0;

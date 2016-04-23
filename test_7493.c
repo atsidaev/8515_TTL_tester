@@ -18,9 +18,6 @@
 /* 4-bit asynchronous binary counter with /2 and /8 sections and reset.  */
 void test_7493(void)
     {   
-        sym[1]=3;
-        sym[2]=9;
-        sym[3]=13;
         Direct_L=(P_nCLK1 | P_RST1 | P_RST2 | P_NC1 | P_VCC | P_NC2 | P_NC3 | BIT_L7);
         Direct_H=(BIT_H7 | P_GND | P_NC4 | P_nCLK0);
         Port_H=0;        

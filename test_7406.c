@@ -17,9 +17,6 @@
 /* 1A 1Y 2A 2Y 3A 3Y GND 4Y 4A 5Y 5A 6Y 6A VCC */
 void test_7406(void)
     {   
-        sym[1]=6;
-        sym[2]=0;
-        sym[3]=13;
         Direct_L=(P_1A | P_2A | P_3A | P_GND | BIT_L7);
         Direct_H=(BIT_H7 | P_4A | P_5A | P_6A | P_VCC);
         Port_L=(P_1Y | P_2Y | P_3Y);

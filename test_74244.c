@@ -24,9 +24,6 @@
 /* 74244 Dual 4-bit 3-state noninverting buffer/line driver. */ 
 void test_74244(void)
     {
-        sym[1]=4;
-        sym[2]=4;
-        sym[3]=2;
         Direct_L=(P_n1OE | P_1A1 | P_1A2 | P_1A3 | P_1A4);
         Direct_H=(P_2A2 | P_2A3 | P_2A4 | P_n2OE | P_VCC);
         DDRE=2;

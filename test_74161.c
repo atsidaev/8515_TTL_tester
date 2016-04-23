@@ -21,9 +21,6 @@
 void test_74161(void)
     {   
         char i=0;
-        sym[1]=1;
-        sym[2]=6;
-        sym[3]=1;
         Direct_L=(P_nRST | P_CLK | P_P0 | P_P1 | P_P2 | P_P3 | P_ENP | P_GND);
         Direct_H=(P_nLOAD | P_ENT | P_VCC);
         Port_H=(P_nLOAD | P_VCC);

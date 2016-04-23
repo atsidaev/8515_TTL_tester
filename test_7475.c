@@ -20,9 +20,6 @@
 /* Dual 2-bit transparent latches with complementary outputs. */
 void test_7475(void)
     {   
-        sym[1]=5;
-        sym[2]=7;
-        sym[3]=13;
         Direct_L=(P_1D1 | P_1D2 | P_2LE | P_VCC | P_2D1 | P_2D2);
         Direct_H=(P_GND | P_1LE);
         Port_L=(P_n1Q1 | P_VCC | P_n2Q2);

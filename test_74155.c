@@ -20,9 +20,6 @@
 /* 2-of-8 inverting decoder/demultiplexer with separate enables. */
 void test_74155(void)
     {   
-        sym[1]=5;
-        sym[2]=5;
-        sym[3]=1;
         Direct_L=(P_1EN1 | P_n1EN2 | P_S1 | P_GND);
         Direct_H=(P_S0 | P_n2EN2 | P_n2EN1 | P_VCC);
         Port_L=(P_n1EN2);

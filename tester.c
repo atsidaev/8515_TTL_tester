@@ -171,7 +171,11 @@ void test(char ic_num)
 {
     res=1; /* flag that will be reset by testing function */
     sym[0]=12; /* two horizontal lines as a testing process indicator */
-
+    
+    sym[1] = chips[sel].sym[0];
+    sym[2] = chips[sel].sym[1];
+    sym[3] = chips[sel].sym[2];
+    
     chips[ic_num].test();
     if (res==1) sym[0]=10;
         else sym[0]=11;

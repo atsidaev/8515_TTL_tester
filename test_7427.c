@@ -17,9 +17,6 @@
 /* 1A 1B 2A 2B 2C 2Y GND 3Y 3A 3B 3C 1Y 1C VCC */
 void test_7427(void)
     {   
-        sym[1]=7;
-        sym[2]=2;
-        sym[3]=13;
         Direct_L=(P_1A | P_1B | P_2A | P_2B | P_2C | P_GND | BIT_L7);
         Direct_H=(BIT_H7 | P_3A | P_3B | P_3C | P_1C | P_VCC);
         Port_L=0;

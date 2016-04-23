@@ -24,9 +24,6 @@
 /* 74245 8-bit 3-state noninverting bus transceiver. */
 void test_74245(void)
     {
-        sym[1]=5;
-        sym[2]=4;
-        sym[3]=2;
         Direct_L=(P_DIR | P_A1 | P_A2 | P_A3 | P_A4 | P_A5 | P_A6 | P_A7);
         Direct_H=(P_nEN | P_VCC);
         DDRE=1;

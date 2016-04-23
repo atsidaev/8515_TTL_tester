@@ -20,9 +20,6 @@
 /* 74298 8-to-4 line noninverting data selector/multiplexer with output registers. */
 void test_74298(void)
     {
-        sym[1]=8;
-        sym[2]=9;
-        sym[3]=2;
         Direct_L=(P_2A1 | P_2A0 | P_1A0 | P_1A1 | P_3A1 | P_4A1 | P_4A0 | P_GND);
         Direct_H=(P_3A0 | P_S | P_CLK | P_VCC);
         Port_L=(P_2A1 | P_1A0 | P_4A1);

@@ -24,9 +24,6 @@
 /* 74374 8-bit 3-state D flip-flop. */ 
 void test_74374(void)
     {
-        sym[1]=4;
-        sym[2]=7;
-        sym[3]=3;
         Direct_L=(P_nOE | P_D1 | P_D2 | P_D3 | P_D4);
         Direct_H=(P_D5 | P_D6 | P_D7 | P_D8 | P_VCC);
         DDRE=2;

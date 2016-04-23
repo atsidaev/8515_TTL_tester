@@ -20,9 +20,6 @@
 /* 74174 6-bit D flip-flop with reset. */
 void test_74174(void)
     {   
-        sym[1]=4;
-        sym[2]=7;
-        sym[3]=1;
         Direct_L=(P_nRST | P_D0 | P_D1 | P_D2 | P_GND);
         Direct_H=(P_CLK | P_D3 | P_D4 | P_D5 | P_VCC);
         Port_H=(P_VCC);
