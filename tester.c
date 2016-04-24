@@ -2,28 +2,14 @@
 #include <delay.h>
 
 char sym[4], seg, res=0;
-//flash char znak[]={63,6,91,79,102,109,125,7,127,111, 99,92,9,0,121,113,120,57};
 flash char znak[]={215,17,203,91,29,94,222,19,223,95, 15,216,66,0,206,142,204,198};
-flash char razr[]={128,64,32,16};
+//flash char razr[]={128,64,32,16};    //OK
+flash char razr[]={0x70,0xB0,0xD0,0xE0};    //OA
 char sel=0;
 
 void menu(void);
 void search(void);
 
-
-/*#define Port_H PORTD
-#define Direct_H DDRD
-#define Pin_H PIND
-#define Port_L PORTC
-#define Direct_L DDRC
-#define Pin_L PINC
-#define Display_P PORTA
-#define Display_D DDRA
-#define key_UP PINB.0
-#define key_DN PINB.1
-#define key_SEARCH PINB.2
-#define key_TEST PINB.3 
-*/
 #define Port_H PORTA
 #define Direct_H DDRA
 #define Pin_H PINA
@@ -53,6 +39,7 @@ void search(void);
 #include <test_7474.c>
 #include <test_7475.c>
 #include <test_7486.c>
+#include <test_7492.c>
 #include <test_7493.c>
 #include <test_74125.c> 
 #include <test_74138.c>
@@ -67,14 +54,18 @@ void search(void);
 #include <test_74245.c>
 #include <test_74253.c>
 #include <test_74257.c>
+#include <test_74258.c>
 #include <test_74295.c>
 #include <test_74298.c>
 #include <test_74374.c>
+#include <test_74393.c>
+#include <test_74452.c>
 #include <test_c4520.c>
 #include <test_011.c>
-#include <test_019.c>
 #include <test_082.c>
+#include <test_083.c>
 #include <test_086.c>
+#include <test_087.c>
 
 const struct
 {
@@ -98,6 +89,7 @@ const struct
     { test_7474,    { 4, 7, 13, 13 } }, 
     { test_7475,    { 5, 7, 13, 13 } },
     { test_7486,    { 6, 8, 13, 13 } },
+    { test_7492,    { 2, 9, 13, 13 } },    
     { test_7493,    { 3, 9, 13, 13 } },
     { test_74125,   { 5, 2, 1, 13 } },
     { test_74138,   { 8, 3, 1, 13 } },
@@ -111,15 +103,19 @@ const struct
     { test_74244,   { 4, 4, 2, 13 } },
     { test_74245,   { 5, 4, 2, 13 } },
     { test_74253,   { 3, 5, 2, 13 } },
-    { test_74257,   { 7, 5, 2, 13 } },
+    { test_74257,   { 7, 5, 2, 13 } }, 
+    { test_74258,   { 8, 5, 2, 13 } },
     { test_74295,   { 5, 9, 2, 13 } },
     { test_74298,   { 8, 9, 2, 13 } },
-    { test_74374,   { 4, 7, 3, 13 } },
+    { test_74374,   { 4, 7, 3, 13 } },    
+    { test_74393,   { 3, 9, 3, 13 } },
+    { test_74452,   { 2, 5, 4, 13 } },
     { test_C4520,   { 0, 2, 17, 13 } },
     { test_011,   { 1, 1, 12, 13 } },
-    { test_019,   { 9, 1, 12, 13 } },
-    { test_082,   { 2, 8, 12, 13 } },
+    { test_082,   { 2, 8, 12, 13 } },  
+    { test_083,   { 3, 8, 12, 13 } },
     { test_086,   { 6, 8, 12, 13 } },
+    { test_087,   { 7, 8, 12, 13 } }
 };
 
 #define _ICs (sizeof(chips)/sizeof(chips[0]))
@@ -129,7 +125,8 @@ interrupt [TIM0_OVF] void timer0_ovf_isr(void)
         seg++;
         if (seg==0x04) seg=0x00;
         PORTB=~razr[seg];
-        Display_P=znak[sym[seg]];    
+        //Display_P=znak[sym[seg]];     //OK
+        Display_P=~znak[sym[seg]];     //OA
     }
 
 void main(void)

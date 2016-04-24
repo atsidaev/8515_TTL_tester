@@ -14,6 +14,7 @@ void test_7407(void)
             else res=0;
         Port_L=63;
         Port_H=127;
+        delay_ms(1);
         if ((Pin_L==63) && (Pin_H==127) && (res==1)) res=1;
             else res=0;
         if (res==1) sym[0]=10;
